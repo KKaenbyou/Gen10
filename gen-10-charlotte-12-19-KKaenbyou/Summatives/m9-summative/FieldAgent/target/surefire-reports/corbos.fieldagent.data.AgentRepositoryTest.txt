@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: corbos.fieldagent.data.AgentRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.504 s <<< FAILURE! - in corbos.fieldagent.data.AgentRepositoryTest
+testFindAll  Time elapsed: 0.499 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at corbos.fieldagent.data.AgentRepositoryTest.testFindAll(AgentRepositoryTest.java:28)
+
+testFindById  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not <null>
+	at corbos.fieldagent.data.AgentRepositoryTest.testFindById(AgentRepositoryTest.java:37)
+

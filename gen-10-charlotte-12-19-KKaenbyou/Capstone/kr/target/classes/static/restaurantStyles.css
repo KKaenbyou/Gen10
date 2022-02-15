@@ -1,0 +1,88 @@
+			body {
+				text-align:center;
+				background-color:black;
+				color:red;
+			}
+			
+			header {
+				background-color:darkred;
+				font-family: serif;
+			}
+			
+			nav {
+				border-top: thin red solid;
+				border-bottom: thin red solid;
+				padding-top: 15px;
+				padding-bottom: 1px;
+			}
+			
+			nav a:visited {
+				color:blue;
+			}
+			
+			nav .btn {
+				background-color: darkred;
+				color: white;
+			}
+			
+			nav .btn:hover {
+				font-weight: bold;
+			}
+			
+			nav a {
+				margin-left:5px;
+				margin-right:5px;
+			}
+			
+			footer {
+				color: red;
+				border-top: thin red solid;
+				border-bottom: thin red solid;
+				padding-top: 1px;
+				padding-bottom: 10px;
+			}
+			
+			.carousel-inner img {
+				margin: auto;
+				padding-top: 15px;
+				padding-bottom: 30px;
+			}
+			
+			th {
+				border: 1px solid red;
+			}
+			
+			th, td {
+				border-bottom: 1px solid red;
+			}
+			
+			td#e {
+				font-size: large;
+				font-weight: bold;
+			}
+			
+			a:visited {
+				color:blue;
+			}
+			
+			.btn {
+				background-color: darkred;
+				color: white;
+			}
+			
+			input {
+				text-align:center;
+			}
+			
+			.btn:hover {
+				font-weight: bold;
+			}
+			
+			input {
+				color:red;
+				background-color:black;
+			}
+			
+			label {
+				font-weight: bold;
+			}

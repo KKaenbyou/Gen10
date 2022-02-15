@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<title>Lucky Sevens</title>
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+		 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+		 crossorigin="anonymous"> 
+	
+		<script type="text/javascript" src="L7.js"></script>
+		
+		<style>
+			body {
+				color:red;
+				text-align:center;
+				background-color:black;
+				font-family:sans-serif;
+			}
+			
+			form {
+				display: inline-block;
+			}
+			
+			wrapper {
+				text-align: center;
+			}
+			
+			table, th, td {
+				border: 1px solid red;
+				margin-top: 20px;
+				width: 600px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+			<h1>Lucky Sevens</h1><br />
+			<p>How many dollars do you have to bet?</p>
+			<form name="l7" onsubmit=" return dice();">
+				<label for="d">Starting bet: </label>
+				<input type="number" id="d">
+				<div class="wrapper">
+					<button type="submit" id="submit" class="btn" style="background-color:red; margin-top: 20px;">Play</button>
+				</div>
+			</form>
+			
+			<table id="results" align="center">
+			<thead>
+				<tr>
+					<th colspan="2">Results (in dollars)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Starting Bet</td>
+					<td id="start"></td>
+				</tr>
+				<tr>
+					<td>Total Rolls Before Going Broke</td>
+					<td id="rolls"></td>
+				</tr>
+				<tr>
+					<td>Highest Amount Won</td>
+					<td id="max"></td>
+				</tr>
+				<tr>
+					<td>Roll Count at Hightest Amount Won</td>
+					<td id="maxRolls"></td>
+				</tr>
+			</tbody>
+		</div>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>

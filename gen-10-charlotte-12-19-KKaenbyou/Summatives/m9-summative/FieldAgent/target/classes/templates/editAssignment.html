@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <title>Edit Assignment</title>
+  </head>
+  <body>
+  <!-- Main Body of Page -->
+  <div class="row m-4 border border-dark">
+    <div class="col-12 m-3">
+      <span class="h3">Edit an Assignment</span>
+      <form action="editedAssignment" method="post">
+        <div class="col-12 m-1 text-center" th:if="${!errors.isEmpty()}">
+          <p class="alert alert-danger" th:each="error : ${errors}" th:text="${error.message}">Error message</p>
+        </div>
+		<div class="col-12 m-1 text-center" th:if="${!stringError.isEmpty()}">
+          <p class="alert alert-danger" th:each="error : ${stringError}" th:text="${error}">Error message</p>
+        </div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="agent" class="col-12 col-form-label">Current Agent: <p th:text="${assign.agent.firstName + &#39; &#39; + assign.agent.lastName}"></p></label>
+            <div class="col-9">
+              <select id="agent" name="agent" class="form-control" >
+                <option th:each="agent : ${agentList}" th:value="${agent.identifier}"
+                th:text="${agent.firstName + &#39; &#39; + agent.lastName}">Agent Name</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="country" class="col-6 col-form-label">Current Country: <p th:text="${assign.country.name}"></p></label>
+            <div class="col-9">
+              <select id="country" name="country" class="form-control">
+                <option th:each="country : ${countryList}" th:value="${country.countryCode}" th:text="${country.name}">
+                Country</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="startDate" class="col-8 col-form-label">Start Date (Format: YYYY-MM-DD)</label>
+            <div class="col-9">
+              <input type="text" name="startDate" id="startDate" class="form-control" th:value="${assign.startDate}"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group row">
+              <label for="endDate" class="col-8 col-form-label">End Date (Format: YYYY-MM-DD)</label>
+              <div class="col-9">
+                <input type="text" name="endDate" id="endDate" class="form-control" th:value="${assign.projectedEndDate}"/>
+              </div>
+            </div>
+          </div>
+		  <div class="form-group row">
+            <label for="actualDate" class="col-8 col-form-label">Actual End Date (Year 9000 = No Date Set)</label>
+            <div class="col-9">
+              <input type="text" name="actualDate" id="actualDate" class="form-control" th:value="${assign.actualEndDate}" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="notes" class="col-6 col-form-label">Notes</label>
+          <div class="col-8">
+            <input type="text" name="notes" id="notes" class="form-control" th:value="${assign.notes}"/>
+          </div>
+        </div>
+		<div class="form-group row" hidden>
+          <label for="assignmentId" class="col-6 col-form-label">AssignmentID</label>
+          <div class="col-8">
+            <input type="text" name="assignmentId" id="assignmentId" class="form-control" th:value="${assign.assignmentId}"/>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Assignment</button>
+      </form>
+      <form action="cancel" method="post">
+        <button type="submit" class="btn btn-primary" style="background-color:Red">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <!-- End main body -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script></body>
+</html>

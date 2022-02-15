@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <title>Edit Agent</title>
+  </head>
+  <body>
+  <!-- Main Body of Page -->
+  <div class="row m-4 border border-dark">
+    <div class="col-12 m-3">
+      <span class="h3">Edit a Field Agent</span>
+      <form action="editedAgent" method="post">
+        <div class="col-12 m-1 text-center" th:if="${!errors.isEmpty()}">
+          <p class="alert alert-danger" th:each="error : ${errors}" th:text="${error.message}">Error message</p>
+        </div>
+		<div class="col-12 m-1 text-center" th:if="${!stringError.isEmpty()}">
+          <p class="alert alert-danger" th:each="error : ${stringError}" th:text="${error}">Error message</p>
+        </div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="firstName" class="col-4 col-form-label">First Name</label>
+            <div class="col-9">
+              <input type="text" name="firstName" id="firstName" class="form-control" th:value="${agent.firstName}"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="middleName" class="col-4 col-form-label">Middle Name</label>
+            <div class="col-9">
+              <input type="text" name="middleName" id="middleName" class="form-control" th:value="${agent.middleName}"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastName" class="col-4 col-form-label">Last Name</label>
+            <div class="col-9">
+              <input type="text" name="lastName" id="lastName" class="form-control" th:value="${agent.lastName}"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="birth" class="col-8 col-form-label">Birth Date (Format: YYYY-MM-DD)</label>
+            <div class="col-9">
+              <input type="text" name="birth" id="birth" class="form-control" th:value="${agent.birthDate}"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="height" class="col-6 col-form-label">Height in Inches</label>
+            <div class="col-9">
+              <input type="text" name="height" id="height" class="form-control" th:value="${agent.height}"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 m-3">
+          <span class="h3">Agency</span>
+        </div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="identifier" class="col-4 col-form-label">Identifier</label>
+            <div class="col-9">
+              <input type="text" name="identifier" id="identifier" class="form-control" th:value="${agent.identifier}" readonly/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="agency" class="col-8 col-form-label">Current Agency: <p th:text="${agent.agency.name}"></p></label>
+            <div class="col-9">
+              <select id="agency" name="agencyId" class="form-control">
+                <option th:each="agency : ${agencyList}" th:value="${agency.agencyId}" th:text="${agency.name}">Agency
+                Name</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="security" class="col-8 col-form-label">Current Security Clearance: <p th:text="${agent.securityClearance.name}"></p></label>
+            <div class="col-9">
+              <select id="security" name="securityId" class="form-control">
+                <option th:each="securityClearance : ${securityClearanceList}" th:value="${securityClearance.securityClearanceId}"
+                th:text="${securityClearance.name}">SecurityClearance</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="form-group row">
+          <label for="activeDate" class="col-8 col-form-label">Activation Date (Format: YYYY-MM-DD)</label>
+          <div class="col-9">
+            <input type="text" name="activeDate" id="activeDate" class="form-control" th:value="${agent.activationDate}"/>
+          </div>
+        </div>Is Active: <p th:text="${agentIsActive}"></p>
+        <input type="checkbox" name="isActive" value="isActive" checked /></div>
+        <div class="row">
+          <div class="form-group row">
+            <label for="pictureURL" class="col-6 col-form-label">Picture URL</label>
+            <div class="col-9">
+              <input type="text" name="pictureURL" id="pictureURL" class="form-control" th:value="${agent.pictureUrl}"/>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Agent</button>
+      </form>
+	  <form action="cancel" method="post">
+	  <button type="submit" class="btn btn-primary" style="background-color:Red">Cancel</button>
+	  </form>
+    </div>
+  </div>
+  <div class="col text-center m-3">
+    <a href="addAssignment" class="btn btn-outline-primary btn-lg">Add Assignment</a>
+  </div>
+  <div class="row m-4 border border-dark">
+    <div class="col text-center m-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="assign : ${assignList}">
+            <td th:text="${assign.country.name}">Country</td>
+            <td th:text="${assign.startDate}">Start Date</td>
+            <td th:text="${assign.projectedEndDate}">End Date</td>
+            <td>
+              <a href="#" th:href="@{/editAssignment(id=${assign.assignmentId}, identifier=${agent.identifier})}">Edit</a>
+            </td>
+            <td>
+              <a href="#" th:href="@{/deleteAssignment(id=${assign.assignmentId})}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- End main body -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script></body>
+</html>

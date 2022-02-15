@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: corbos.fieldagent.data.AssignmentRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in corbos.fieldagent.data.AssignmentRepositoryTest
+testFindAll  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
+	at corbos.fieldagent.data.AssignmentRepositoryTest.testFindAll(AssignmentRepositoryTest.java:34)
+
+testFindByAgentIdentifier  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
+	at corbos.fieldagent.data.AssignmentRepositoryTest.testFindByAgentIdentifier(AssignmentRepositoryTest.java:42)
+
+testCreate  Time elapsed: 0 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at corbos.fieldagent.data.AssignmentRepositoryTest.testCreate(AssignmentRepositoryTest.java:48)
+

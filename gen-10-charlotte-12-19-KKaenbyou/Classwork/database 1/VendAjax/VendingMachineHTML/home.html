@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Vending Machine</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+	
+    <body>
+        <div class="container">
+            <h1 class="text-center">Vending Machine</h1>
+        </div>
+		<div class="col-md-6">
+			<h1 class="text-center">Items</h1>
+
+			<table id="itemTable" class="table table-hover">
+				<tr>
+					<th width="25%">ID</th>
+					<th width="25%">Name</th>
+					<th width="25%">Price in $</th>
+					<th width="25%">Quantity</th>
+				</tr>
+				<tbody id="contentRows"></tbody>
+			</table>
+		</div>
+		
+        <div class="col-md-6">
+			<h1 class="text-center" style="color:Green;">Total $</h1>
+			<h1 class="text-center" id="cash" style="color:Green;"></h1>
+			<div class="text-center">
+				<button type="button" id="dollar" class="btn btn-default">Add Dollar</button>
+				<button type="button" id="quarter" class="btn btn-default">Add Quarter</button>
+				<button type="button" id="dime" class="btn btn-default">Add Dime</button>
+				<button type="button" id="nickel" class="btn btn-default">Add Nickel
+				</button>
+			</div>
+        </div>
+		
+		<div class="col-md-6">
+			<h1 class="text-center" id="messageTitle" style="color:Blue;">Messages</h1>
+			<h1 class="text-center" id="message" style="color:Blue;"></h1>
+			<h1 class="text-center" id="itemTitle" style="color:Red;">Item ID</h1>
+			<h1 class="text-center" id="item" style="color:Red;"></h1>
+			<div class="text-center">
+				<button type="button" id="purchase" class="btn btn-default">Make Purchase</button>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<h1 class="text-center">Change</h1>
+			<h1 class="text-center" id="change"></h1>
+			<div class="text-center">
+				<button type="button" id="makechange" class="btn btn-default">Change Return</button>
+			</div>
+		</div>
+		
+        <script src="js/jquery-2.2.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="js/home.js"></script>
+    </body>
+</html>

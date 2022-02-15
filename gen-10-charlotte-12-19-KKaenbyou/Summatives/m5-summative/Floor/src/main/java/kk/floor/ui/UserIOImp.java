@@ -1,0 +1,49 @@
+package kk.floor.ui;
+
+import java.util.Scanner;
+
+public class UserIOImp implements UserIO {
+
+    Scanner s = new Scanner(System.in);
+
+    @Override
+    public void print(String message) {
+        System.out.println(message);
+    }
+
+    @Override
+    public int readInt(String prompt) {
+        System.out.println(prompt);
+        return Integer.parseInt(s.nextLine());
+    }
+
+    @Override
+    public int readInt(String prompt, int min, int max) {
+        int p;
+        System.out.println(prompt);
+        p = Integer.parseInt(s.nextLine());
+        while (p <= min && p >= max) {
+            System.out.println(prompt);
+            p = Integer.parseInt(s.nextLine());
+        }
+        return p;
+    }
+
+    @Override
+    public double readDouble(String prompt) {
+        System.out.println("prompt");
+        return Double.parseDouble(s.nextLine());
+    }
+
+    @Override
+    public String readString(String prompt) {
+        System.out.println(prompt);
+        String string = s.nextLine();
+        while(string.contains(":")) {
+            System.out.println("Input cannot contain colons.");
+            System.out.println(prompt);
+            string = s.nextLine();
+        }
+        return string;
+    }
+}

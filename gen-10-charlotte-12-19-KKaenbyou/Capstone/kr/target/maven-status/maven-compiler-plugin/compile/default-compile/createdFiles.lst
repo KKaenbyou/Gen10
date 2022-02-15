@@ -1,0 +1,13 @@
+kk\kr\entities\Feedback.class
+kk\kr\data\FoodRepo.class
+kk\kr\KrApp.class
+kk\kr\entities\User.class
+kk\kr\data\FeedbackRepo.class
+kk\kr\entities\Order.class
+kk\kr\entities\Food.class
+kk\kr\dao\KDao.class
+kk\kr\data\OrderRepo.class
+kk\kr\controller\Kontroller.class
+kk\kr\data\UserRepo.class
+kk\kr\dao\Lookup.class
+kk\kr\dao\Lookup$UserMapper.class
